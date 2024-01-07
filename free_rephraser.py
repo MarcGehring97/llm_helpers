@@ -34,7 +34,9 @@ response = requests.post(
         
         User content:
       """
-    }, {"role": "user", "content": user_content}]
+      }, 
+      {"role": "user", "content": user_content}
+    ]
   })
 )
 
