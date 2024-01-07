@@ -7,7 +7,7 @@ from openai import OpenAI
 # Find the quick actions at ~/Library/Services
 
 # Load OpenAI API key from file
-os.environ["OPENAI_API_KEY"] = json.load(open("/Users/Marc/Desktop/Past Affairs/Past Universities/SSE Courses/Master Thesis/openai_key.json"))["openai_key"]
+os.environ["OPENAI_API_KEY"] = "<your OpenAI API key>"
 
 # Load OpenAI API key from environment variable for security reasons
 openai.api_key = os.environ.get("OPENAI_API_KEY")
@@ -45,7 +45,7 @@ prompt = f"""
 
     User content:
     {user_content}
-    """
+"""
 
 # Extract the 'content' field from the response
 get_reponse(prompt)
