@@ -52,6 +52,6 @@ language = detect_language(user_content)
 
 # Translate the text
 if language == "en" or language == "ca":
-	get_reponse("Translate the text '" + user_content + "' to German. Return the translation only.")
+	get_reponse(f"Translate the text '{user_content}' to German. Return the translation only.")
 else:
-	get_reponse("Translate the text '" + user_content + "' to English. Return the translation only.")
+	get_reponse(f"Translate the text '{user_content}' to English. Return the translation only.")
