@@ -14,34 +14,35 @@ args = sys.argv[1:]
 user_content = " ".join(args)
 
 # Load API key from file
-api_key = json.load(open("/Users/Marc/Desktop/Past Affairs/Past Universities/SSE Courses/Master Thesis/llm_key.json"))["llm_key"]
+# The API key has the format "Bearer sk-or-..."
+api_key = "<your API key>"
 
 def get_lang_detector(nlp, name):
-       return LanguageDetector()
+	return LanguageDetector()
 
 nlp = spacy.load("en_core_web_sm")
 Language.factory("language_detector", func=get_lang_detector)
 nlp.add_pipe('language_detector', last=True)
 
 def detect_language(text):
-    doc = nlp(text)
-    return doc._.language["language"]
+	doc = nlp(text)
+	return doc._.language["language"]
 
 def get_reponse(prompt):
 	response = requests.post(
-  	url="https://openrouter.ai/api/v1/chat/completions",
-  	headers={
-    	  "Authorization": api_key
-  	},
-  	data=json.dumps({
-  	  "model": "mistralai/mistral-7b-instruct",
-   	 "messages": [
-   	   {"role": "system", "content":        
-	"""
-	"""},
-     	 {"role": "user", "content": prompt}
-   	 ]
-  	})
+	  	url="https://openrouter.ai/api/v1/chat/completions",
+	  	headers={
+	    	  "Authorization": api_key
+	  	},
+	  	data=json.dumps({
+	  		"model": "mistralai/mistral-7b-instruct",
+	   		"messages": [{
+				"role": "system", 
+				"content": ""
+				},
+	     			{"role": "user", "content": prompt}
+	   	 	]
+	  	})
 	)
 	
 	# Extract the "content" field from the response
