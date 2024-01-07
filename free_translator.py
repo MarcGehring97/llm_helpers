@@ -58,9 +58,9 @@ language = detect_language(user_content)
 
 # Translate the text
 if language == "en":
-	content = get_reponse("Translate the text '" + user_content + "' to German. Do it strictly in the following format: Translation: <your translation>")
+	content = get_reponse(f"Translate the text '{user_content}' to German. Do it strictly in the following format: Translation: <your translation>")
 else:
-	content = get_reponse("Translate the text '" + user_content + "' to English. Do it strictly in the following format: Translation: <your translation>")
+	content = get_reponse(f"Translate the text '{user_content}' to English. Do it strictly in the following format: Translation: <your translation>")
 
 # Process the string
 content = content.replace("Translation:", "").replace(user_content, "").replace("German:", "").strip()
