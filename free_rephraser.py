@@ -22,18 +22,17 @@ response = requests.post(
   data=json.dumps({
     "model": "mistralai/mistral-7b-instruct",
     "messages": [{
-      "role": "system", "content":        
-      """
-      Rephrase the following sentences to be more reader-friendly and engaging in the same language as the user content. Do not preface your response with Response, provide the improved sentence directly.
-      
-      Examples:
-      User content: "I have a test tomorrow, so I needs to study all night. I'm so tired."
-      Response: "I have a test tomorrow, so I need to study all night. I'm so tired."
-      
-      User content: "He don't like to eat vegetables. Vegetables are healthy and provide essential nutrients."
-      Response: "He doesn't like to eat vegetables. Vegetables are healthy and provide essential nutrients."
-      
-      User content:
+      "role": "system", "content": """
+        Rephrase the following sentences to be more reader-friendly and engaging in the same language as the user content. Do not preface your response with Response, provide the improved sentence directly.
+        
+        Examples:
+        User content: "I have a test tomorrow, so I needs to study all night. I'm so tired."
+        Response: "I have a test tomorrow, so I need to study all night. I'm so tired."
+        
+        User content: "He don't like to eat vegetables. Vegetables are healthy and provide essential nutrients."
+        Response: "He doesn't like to eat vegetables. Vegetables are healthy and provide essential nutrients."
+        
+        User content:
       """
     }, {"role": "user", "content": user_content}]
   })
